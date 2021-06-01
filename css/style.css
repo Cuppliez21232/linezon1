@@ -3,6 +3,7 @@
   padding: 0;
 }
 body {
+  position: fixed;
   overflow-x: hidden;
   font-family: "Campton SemiBold";
 }
