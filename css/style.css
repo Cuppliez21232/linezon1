@@ -1,546 +1,159 @@
 * {
   margin: 0;
   padding: 0;
-}
-html {
-  overflow-x: hidden;
-}
-body {
-  overflow-x: hidden;
+  box-sizing: border-box;
   font-family: "Campton SemiBold";
 }
+
 /* navbar */
+
 nav {
   width: 100%;
-  display: flex;
-
-  justify-content: space-around;
-  line-height: 80px;
-  background: linear-gradient(to right top, green, blue);
+  position: fixed;
+  display: block;
+  background: blue;
 }
-.tombol-daftar {
-  line-height: 40px;
-  text-align: center;
-  position: static;
-  margin-top: 20px;
-  width: 100px;
-  height: 40px;
-  background-color: blue;
-  border-radius: 40px;
-}
-.tombol-daftar:hover {
-  color: rgb(255, 255, 255);
-  background-color: rgb(22, 22, 255);
-  box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.7);
-  transition: 0.3s;
-}
-.tombol-daftar a {
-  text-transform: uppercase;
-  color: aliceblue;
-  text-decoration: none;
-}
-nav ul {
-  display: flex;
-  width: 40%;
-  justify-content: space-between;
-}
-.logo {
-  text-transform: uppercase;
+label #btn,
+label #cancel {
   color: white;
   font-size: 30px;
+  float: right;
+  margin-right: 40px;
+  line-height: 70px;
+  cursor: pointer;
+  display: none;
 }
-nav ul li a {
-  text-decoration: none;
-  color: azure;
+.icon,
+#check {
+  display: none;
+}
+nav::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+nav .logo {
   text-transform: uppercase;
+  float: left;
+  color: white;
+  font-size: 30px;
+  line-height: 70px;
+  padding-left: 50px;
+  cursor: pointer;
+}
+ul {
+  float: right;
+  list-style: none;
+  position: relative;
+  margin-right: 30px;
+  z-index: 1;
+}
+nav ul li {
+  display: inline-block;
+  line-height: 70px;
+  margin: 0 5px;
 }
 nav ul li a:hover {
-  color: rgb(18, 232, 18);
+  box-shadow: 0 0 5px #33ffff, 0 0 5px #66ffff;
+  border-radius: 10px;
+  color: cyan;
 }
-/* hamburger menu */
-
-.menu-toggle {
-  margin: 30px 0;
-  display: none;
-  flex-direction: column;
-  height: 18px;
-  justify-content: space-between;
-  position: relative;
-}
-.menu-toggle input {
-  display: block;
-  position: absolute;
-  width: 50px;
-  height: 20px;
-  opacity: 0;
-  left: 90px;
-  top: -2px;
-  cursor: pointer;
-  z-index: 2;
-}
-.menu-toggle span {
-  margin-left: 100px;
-  top: 20px;
-  display: block;
-  width: 28px;
-  height: 4px;
-  background-color: rgb(255, 255, 255);
-  border-radius: 3px;
-  transition: all 0.5s;
-}
-
-/* hamburger menu animation */
-.menu-toggle span:nth-child(3) {
-  transform-origin: 100% 0;
-}
-.menu-toggle span:nth-child(4) {
-  transform-origin: 0 100%;
-}
-.menu-toggle input:checked ~ span:nth-child(3) {
-  transform: rotate(-31deg) translate(1px, -7.5px);
-  background-color: whit;
-  height: 4px;
-}
-.menu-toggle input:checked ~ span:nth-child(2) {
-  background-color: white;
-}
-.menu-toggle input:checked ~ span:nth-child(4) {
-  background-color: white;
-}
-/* .menu-toggle input:checked ~ span:nth-child(4) {
-  transform: rotate(-20deg) translate(-1px, 0);
-} */
-
-/* resonsive */
-/* ukuran laptopp */
-@media screen and (max-width: 992px) {
-  .tombol-daftar {
-    background-color: green;
-  }
-}
-/* ukuran tablet */
-@media (max-width: 768px) {
-  .tombol-daftar {
-    background-color: green;
-  }
-  nav ul {
-    width: 50%;
-  }
-}
-/* ukuran mobile */
-
-@media (max-width: 576px) {
-  #hal8 ul {
-    margin-left: 30px;
-  }
-
-  .tombol-daftar {
-    display: none;
-  }
-  nav ul li a:hover {
-    color: white;
-    padding: 0 5px;
-    border-radius: 10px;
-    text-align: center;
-    background-color: black;
-  }
-  nav ul {
-    position: absolute;
-    right: 0;
-    top: 80px;
-    width: 80%;
-    align-items: center;
-    height: 100vh;
-    justify-content: space-evenly;
-    flex-direction: column;
-    background: linear-gradient(to bottom right, green 30%, blue);
-    opacity: 0.9;
-    transform: translateX(100%);
-    transition: all 1s;
-  }
-  nav ul.slide {
-    transform: translateX(0);
-  }
-  nav {
-    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.7);
-  }
-  .menu-toggle {
-    display: flex;
-  }
-}
-/* akhir navbar */
-
-/* HALAMAN 1 */
-#hal1 {
-  background: linear-gradient(rgb(9, 221, 9), blue);
-
-  /* Standard syntax */
-
-  /* background: -webkit-linear-gradient(blue, green); */
-  /* For Safari 5.1 to 6.0 */
-
-  /* background: -o-linear-gradient(blue, green); */
-  /* For Opera 11.1 to 12.0 */
-
-  /* background: -moz-linear-gradient(blue, green); */
-  /* For Firefox 3.6 to 15 */
-
+nav ul li a {
   color: white;
+  text-decoration: none;
+  line-height: 70px;
+  font-size: 18px;
+  padding: 5px 20px;
+}
+.btn:hover {
+  background: rgb(90, 233, 90);
+  border-radius: 40px;
+}
+.btn {
+  color: white;
+  border-radius: 40px;
+  background: rgb(13, 230, 13);
+}
+/* hal1 */
+
+#hal1 {
+  padding-top: 50px;
+  width: 100%;
+  color: white;
+  text-align: center;
+  background: #aeaeae;
 }
 #hal1 h1 {
-  margin-top: 140px;
-  margin-bottom: 20px;
-  text-align: center;
-  font-family: "Campton SemiBold";
-  font-weight: normal;
-  font-size: 40px;
+  font-size: 28px;
+  padding: 50px 0;
 }
-.container img {
-  width: 80%;
-}
-/* utility */
-.container h3 {
-  font-family: "Campton SemiBold";
-  font-weight: normal;
-  font-size: 34px;
-  text-align: center;
-  margin-top: 17px;
-  margin-bottom: 30px;
-}
-#baris-2 h1 {
-  font-size: 34pt;
-  text-transform: uppercase;
-  background-color: rgb(23, 191, 23);
-  width: auto;
-}
-/* HALAMAN 2 */
-#baris-2 h1 {
-  font-size: 24pt;
-}
-#hal2 {
-  background: linear-gradient(blue, rgb(23, 191, 23));
-  color: white;
-  text-align: center;
-}
-#hal2 h1 {
-  font-size: 30px;
-}
-#hal2 h1::after {
-  content: "";
+#hal1 h1 span {
   display: block;
-  font-family: "Campton SemiBold";
-  border-bottom: 8px solid rgb(23, 191, 23);
-  margin: auto;
-  width: 30%;
-  padding-bottom: 20px;
-  margin-bottom: 20px;
-}
-#hal2 p {
-  font-size: 20pt;
-  font-family: "Campton SemiBold";
-  padding-top: 20px;
-  margin-bottom: 20px;
-}
-#hal2 span p {
-  font-size: 20pt;
-  padding-bottom: 30px;
+  background: #00a859;
 }
 
-#hal4 {
-  font-family: "Campton SemiBold";
-  color: white;
-  text-align: center;
-  background-color: white;
-  background: linear-gradient(rgb(23, 191, 23), blue);
-}
-#hal4 h1 {
-  padding-top: 50px;
-  padding-bottom: 50px;
-  font-size: 24pt;
-}
-#hal4 p {
-  font-size: 15pt;
-  margin-top: 30px;
-}
-#hal5 h1 {
-  font-size: 22pt;
-  margin-top: 50px;
-  margin-bottom: 50px;
-}
-/* SEMUA VERSI */
-.tombol {
-  font-family: "Campton SemiBold";
-  border-radius: 40px;
-  margin: auto;
-  width: 300px;
-  margin-bottom: 30px;
-}
-.tombol1 {
-  font-family: "Campton SemiBold";
-  width: 300px;
-  height: 50px;
-  border-radius: 40px;
-  margin: auto;
-  font-size: 22pt;
-  padding-top: unset;
-  margin-top: 50px;
-  margin-bottom: 30px;
-}
-#hal5 {
-  text-align: center;
-  font-family: "Campton SemiBold";
-  color: white;
-  background: linear-gradient(blue, rgb(23, 191, 23) 80%);
-  background: -moz-element(green);
-}
-#hal6 {
-  color: white;
-  text-align: center;
-  font-family: "Campton SemiBold";
-  background-color: white;
-  background: linear-gradient(rgb(23, 191, 23), blue);
-}
-#hal6 h1 {
-  margin-bottom: 0.1cm;
-  font-size: 15pt;
-  padding-top: 50px;
-}
-#hal6 h2 {
-  margin-bottom: 1cm;
-  font-size: 40pt;
-  text-transform: uppercase;
-}
-#hal6 p {
-  font-size: 15pt;
-  margin: 50px 0;
-}
-
-#hal6 .link1 {
-  text-decoration: none;
-  padding-top: 1px;
-  color: rgb(255, 255, 255);
-  font-size: 30pt;
-}
-#hal7 {
-  background: linear-gradient(blue, green);
-  color: white;
-  font-family: "Campton SemiBold";
-}
-#hal7 img {
-  margin: 20px 20px auto;
-  width: 100%;
-}
-/* overlay */
-.overlay {
-  width: 0;
-  height: 0;
-  overflow: hidden;
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 9999;
-  background: rgba(0, 0, 0, 0);
-  transition: 0.5s;
-  padding: 100px 0px;
-}
-.overlay:target {
-  width: auto;
-  height: auto;
-  bottom: 0;
-  right: 0;
-  background: rgba(0, 0, 0, 0.8);
-}
-.overlay img {
-  padding: 0;
-  box-shadow: 0 5px 5px rgba(0, 255, 0, 0.9), 0 -5px 5px rgba(0, 0, 255, 0.9);
-}
-.overlay:target img {
-  animation: zoomDanFade 1s;
-}
-.overlay .close {
-  color: white;
-  text-transform: lowercase;
-  text-decoration: none;
-  position: absolute;
-  top: 70px;
-  left: -40px;
-  margin-left: 50%;
-  background-color: red;
-  border: 1px solid white;
-  border-radius: 30px;
-  padding: 2px 6px;
-  opacity: 0;
-}
-.overlay:target .close {
-  animation: slideDownFade 0.5s 0.5s forwards;
-}
-@keyframes zoomDanFade {
-  0% {
-    transform: scale(0);
-    opacity: 0;
-  }
-  100% {
-    transform: scale(1);
-    opacity: 1;
-  }
-}
-@keyframes slideDownFade {
-  0% {
-    opacity: 0;
-    margin-top: -30px;
-  }
-  100% {
-    opacity: 1;
-    margin-top: 0;
-  }
-}
-#hal8 {
-  padding-top: 50px;
-  padding-bottom: 80px;
-  font-size: 16pt;
-  color: black;
-  background: linear-gradient(green, blue);
-  font-family: "Campton SemiBold";
-}
-#hal8 .cek h1 {
-  text-align: center;
-  /* margin-left: 5px; */
-  margin-top: 20px;
-  line-height: 40px;
-  width: 180px;
-  height: 40px;
-  border-radius: 40px;
-  background: white;
-  float: left;
-}
-#hal8 h1 {
-  box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.8);
-}
-
-#hal8 li {
-  margin-left: -30px;
-  margin-right: 35px;
-  padding-top: 20px;
-  margin-bottom: 30px;
-  float: left;
-}
-
-#hal8 img {
-  border-radius: 50px;
-  box-shadow: 4px 4px 5px rgba(0, 0, 0, 0.8);
-  display: inline-block;
-  margin-left: -20px;
-  bottom: 5px;
-  width: 40px;
-}
-#hal8 h2 {
-  font-size: 25pt;
-  margin-top: 50px;
-  letter-spacing: 3px;
-  text-align: center;
-  color: white;
-  text-transform: uppercase;
-}
-#hal8 h2:hover::after {
-  content: "";
-  display: block;
-  border-bottom: 5px solid green;
-  width: 20%;
-  margin: auto;
-  margin-bottom: -35px;
-  padding-bottom: 30px;
-}
-#hal9 {
-  font-family: "Campton SemiBold";
-  text-align: center;
-  color: white;
-  padding-bottom: -50px;
-  background: linear-gradient(blue, green);
-}
-#hal9 img {
-  width: 100%;
-  margin: 50px;
-}
-#hal9 h1 {
-  text-transform: uppercase;
-  font-size: 20pt;
-}
-/* // X-Large devices (large desktops, 1200px and up) */
-
-@media (min-width: 1200px) {
-  nav {
-    position: relative;
-    background: rgba(0, 0, 0, 0);
-  }
-  nav ul li a:hover {
-    color: rgb(32, 32, 221);
+/* Mobile */
+@media all and (max-width: 860px) {
+  label #btn {
+    display: block;
   }
   nav ul {
-    width: 30%;
-  }
-  .cek {
-    margin-left: 5%;
-  }
-  .tombol {
-    width: 100px;
-  }
-
-  .container {
-    background-position: center;
-  }
-  #hal1 {
-    margin-top: -100px;
-    padding-top: 50px;
-  }
-  #hal1 h3 {
-    font-size: 33pt;
-  }
-  #hal1 h1 {
-    font-size: 33pt;
-  }
-  .container img {
-    width: 50%;
-  }
-  #hal2 h1 {
-    font-family: "Campton SemiBold";
-    font-size: 40pt;
-    margin-top: 0.1px;
-  }
-  #hal2 p {
-    font-size: 33px;
-  }
-  #hal2 span p {
-    font-size: 33pt;
-    padding-bottom: 30px;
-  }
-  #hal3 img {
-    max-width: 100%;
-  }
-  #hal4 h1 {
-    font-size: 33pt;
-    padding-top: 100px;
-  }
-  #hal4 p {
-    font-size: 20pt;
-    padding-top: 35px;
-    margin-bottom: -50px;
-  }
-  #hal5 img {
-    margin-top: 50px;
-    margin-bottom: 50px;
-  }
-  #hal6 {
+    top: 70px;
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    background: rgb(0, 38, 255);
     text-align: center;
-    background-color: white;
-    background: linear-gradient(rgb(23, 191, 23), blue);
+    left: -100%;
+    transition: all 1s;
+  }
+  nav ul li {
+    display: block;
+    line-height: 30px;
+  }
+  nav ul li a {
+    position: relative;
+    color: white;
+    font-size: 18px;
+    text-transform: uppercase;
+  }
+  nav ul li a::before {
+    position: absolute;
+    content: "";
+    left: 0;
+    bottom: 0;
+    height: 3px;
+    width: 100%;
+    background: #33ffff;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.4s linear;
+  }
+  nav ul li a:hover::before {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+  .btn:hover::before {
+    display: none;
   }
 
-  #hal8 ul {
-    padding: 0;
-    margin: 0;
-    display: flex;
-    margin-left: 50px;
-    justify-content: space-evenly;
-    align-items: center;
+  nav ul li a:hover {
+    box-shadow: none;
+  }
+  .btn:hover {
+    display: inline;
+    background: navy;
+    text-align: center;
+    border-bottom: none;
+    border-radius: 40px;
+  }
+  #check:checked ~ ul {
+    left: 0;
+  }
+  #check:checked ~ label #btn {
+    display: none;
+  }
+  #check:checked ~ label #cancel {
+    display: block;
   }
 }
